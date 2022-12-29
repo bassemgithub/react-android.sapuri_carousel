@@ -1,0 +1,8 @@
+{
+    "appId": "io.ionic.sapuri",
+    "appName": "sapuri",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "build",
+    "cordova": {}
+  }

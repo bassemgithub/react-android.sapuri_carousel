@@ -1,0 +1,7 @@
+{
+    "name": "sapuri",
+    "integrations": {
+      "capacitor": {}
+    },
+    "type": "react"
+  }
