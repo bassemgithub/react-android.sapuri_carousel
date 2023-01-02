@@ -41,9 +41,14 @@ html, body, #root, .App, .owl-carousel {margin: 0; height: 100%}
 
 .card {height: 100%;  margin: 0}
 
-.card-img-top {height: 70%;}
+.wrapper-img{height: 70vh}
 
 
 ul, .card-body {
   text-align: center!important; padding:5%
+}
+.card-body{height: 30vh}
+.img-responsive {
+  width: auto;
+  height: 100%;
 }

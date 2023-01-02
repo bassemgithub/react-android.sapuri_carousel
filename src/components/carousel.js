@@ -1,18 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import { ImageContext } from '../contexts/ImagesContext';
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 
-
+{/* 
 class Carousel extends Component {
   static contextType = ImageContext;
   render() {
     const { images } = this.context;
     return (
       <OwlCarousel className='owl-theme' items='1' loop autoplay autoplayTimeout='2000'>
-        {/*OwlCarousel className='owl-theme'  items='2' loop >*/}
-
+        {//OwlCarousel className='owl-theme'  items='2' loop >}
 
         <div className="card">
           <img className="card-img-top" src={images.img1} alt="Card image" />
@@ -91,83 +90,33 @@ class Carousel extends Component {
           </div>
         </div>
 
-
-
-
-        {/* 
-          <div className="row">
-            <div className="col">
-              <div className="card">
-                <img className="card-img-top" src={img1} alt="Card image" />
-                <div className="card-body">
-                  <h4 className="card-title">John Doe</h4>
-                  <p className="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-                  <a href="#" className="btn btn-primary">See Profile</a>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card">
-                <img className="card-img-top" src={img2} alt="Card image" />
-                <div className="card-body">
-                  <h4 className="card-title">John Doe</h4>
-                  <p className="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-                  <a href="#" className="btn btn-primary">See Profile</a>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card">
-                <img className="card-img-top" src={img3} alt="Card image" />
-                <div className="card-body">
-                  <h4 className="card-title">John Doe</h4>
-                  <p className="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-                  <a href="#" className="btn btn-primary">See Profile</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
-          <div className="row">
-            <div className="col">
-              <div className="card">
-                <img className="card-img-top" src={img1} alt="Card image" />
-                <div className="card-body">
-                  <h4 className="card-title">John Doe</h4>
-                  <p className="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-                  <a href="#" className="btn btn-primary">See Profile</a>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card">
-                <img className="card-img-top" src={img2} alt="Card image" />
-                <div className="card-body">
-                  <h4 className="card-title">John Doe</h4>
-                  <p className="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-                  <a href="#" className="btn btn-primary">See Profile</a>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card">
-                <img className="card-img-top" src={img3} alt="Card image" />
-                <div className="card-body">
-                  <h4 className="card-title">John Doe</h4>
-                  <p className="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-                  <a href="#" className="btn btn-primary">See Profile</a>
-                </div>
-              </div>
-            </div>
-          </div>
-*/}
-
-
       </OwlCarousel>
     );
   }
 }
+*/}
+
+const Carousel = () => {
+  const { images } = useContext(ImageContext)
+  return (
+    /* <OwlCarousel className='owl-theme' items='1' loop autoplay autoplayTimeout='2000'> */
+       <OwlCarousel className='owl-theme'  items='1' loop autoplay autoplayTimeout='2000'>
+      {images.map(image => {
+        return (
+          <div className="card" key={image.key}>
+            <div className='wrapper-img'>
+              <img className="card-img-top  img-responsive img-fluid responsiveClass" src={image.img} alt="Card image" />
+            </div>
+            <div className="card-body">
+              <h4 className="card-title">{image.title}</h4>
+              <p className="card-text">{image.description}</p>
+            </div>
+          </div>
+        );
+      })}
+    </OwlCarousel>
+  );
+}
+
 
 export default Carousel;
